@@ -36,10 +36,13 @@ const express = require("express");
 const cors = require("cors");
 const corsAnywhere = require("cors-anywhere");
 const axios = require("axios");
-require("dotenv").config();
+if (process.env.NODE_ENV === "development") {
+    console.log("In development mode");
+    require("dotenv").config();
+}
 
-const host = "localhost";
-const port = 5001;
+// const host = "localhost";
+// const port = 5001;
 
 const app = express();
 

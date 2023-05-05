@@ -80,7 +80,11 @@ app.get("/", (req, res) => {
   }
 });
 
-// Start server
-corsServer.listen(port, host, () => {
-  console.log(`CORS proxy server running on ${host}:${port}`);
-});
+// // Start server
+// corsServer.listen(port, host, () => {
+//   console.log(`CORS proxy server running on ${host}:${port}`);
+// });
+
+corsServer.listen(5001, () => {
+    console.log("Listening on port 5001");
+})

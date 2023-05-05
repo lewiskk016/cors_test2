@@ -57,10 +57,14 @@ app.use(cors({
 
 // Create CORS Anywhere server
 const corsServer = corsAnywhere.createServer({
-  originWhitelist: [], // Allow all origins
-  requireHeader: ["origin", "x-requested-with"],
-  removeHeaders: ["cookie", "cookie2"]
-});
+    originWhitelist: [], // Allow all origins
+    requireHeader: ["origin", "x-requested-with"],
+    removeHeaders: ["cookie", "cookie2"],
+    setHeaders: {
+      "User-Agent": "My-Custom-User-Agent",
+      "X-Custom-Header": "Value"
+    }
+  });
 
 // Proxy GET requests through CORS Anywhere server
 app.get("/", (req, res) => {
